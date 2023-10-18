@@ -1,28 +1,10 @@
-<html>
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Post List</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Post List</h1>
-            <ul class="list-group">
-                {% for post in posts %}
-                    <li class="list-group-item">
-                        <h4>{{ post.title }}</h4>
-                        <p>{{ post.text|linebreaksbr }}</p>
-                        <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">View</a>
-                        <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit</a>
-                        <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
-                    </li>
-                {% empty %}
-                    <li class="list-group-item">No posts available.</li>
-                {% endfor %}
-            </ul>
-            <a href="{% url 'post_new' %}" class="btn btn-success">Add New Post</a>
-        </div>
-    </body>
-    </html>
-    
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h1>Post List</h1>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

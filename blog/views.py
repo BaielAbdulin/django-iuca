@@ -1,9 +1,9 @@
-from django.utils import timezone
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.utils import timezone  # Add this import statement
 from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from .forms import PostForm
-from django.shortcuts import render, redirect  # Add this line
+from django.shortcuts import redirect
 
 class PostListView(ListView):
     model = Post
