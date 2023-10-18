@@ -1,16 +1,16 @@
-{% extends 'blog/base.html' %}
-
-{% block content %}
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-        {% endif %}
-        {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        {% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+        <a href="{% url 'post_list' %}" class="btn btn-primary">Back to List</a>
+        <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
     </div>
-{% endblock %}
+</body>
+</html>
