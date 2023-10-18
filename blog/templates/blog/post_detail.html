@@ -7,4 +7,16 @@
     <a href="{% url 'post_edit' post.pk %}" class="btn btn-primary">Edit</a>
     <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
 </div>
+    <h1>Contact Detail</h1>
+    <p><strong>Name:</strong> {{ contact.first_name }} {{ contact.last_name }}</p>
+    <p><strong>Middle Name:</strong> {{ contact.middle_name }}</p>
+    <p><strong>Phone:</strong> {{ contact.phone }}</p>
+    <p><strong>Email:</strong> {{ contact.email }}</p>
+    <p><strong>Birth Date:</strong> {{ contact.birth_date }}</p>
+
+    {% if contact.photo %}
+    <img src="{{ contact.photo.url }}" alt="Contact Photo" width="150">
+    {% endif %}
+
+    <a href="{% url 'post_list' %}">Back to Contact List</a>
 {% endblock %}

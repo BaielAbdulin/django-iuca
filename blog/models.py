@@ -15,4 +15,13 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-    
+
+
+class Contact(models.Model):
+    last_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    middle_name = models.CharField(max_length=100, blank=True, null=True)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    photo = models.ImageField(upload_to='photos/', blank=True, null=True)
+    birth_date = models.DateField()

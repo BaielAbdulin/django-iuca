@@ -7,4 +7,12 @@
             <li><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></li>
         {% endfor %}
     </ul>
+    <h1>Contact List</h1>
+    <ul>
+        {% for contact in contacts %}
+        <li>
+            <a href="{% url 'post_detail' contact.pk %}">{{ contact.first_name }} {{ contact.last_name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
